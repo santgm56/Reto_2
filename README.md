@@ -189,7 +189,7 @@ classDiagram
         +realizar_pedido()
         +realizar_pago()
     }
-    class Unidad{
+    class UnidadCentral{
         +String nombre
         +String tipo
         +agregar_trabajador(Empleado empleado)
@@ -201,12 +201,12 @@ classDiagram
         +float salario
         +trabajar()
     }
-    Empresa --* Unidad : contiene
+    Empresa --* UnidadCentral: contiene
     Empresa --* Cliente : maneja
 
-    Unidad <|-- Dirección
-    Unidad <|-- Producción
-    Unidad <|-- Finanzas
+    UnidadCentral <|-- Dirección
+    UnidadCentral <|-- Producción
+    UnidadCentral <|-- Finanzas
     Dirección --*  Empleado: asigna
     Empleado <|-- Gerente
     Producción --*  Empleado: asigna

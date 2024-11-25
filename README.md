@@ -27,8 +27,7 @@ El cliente se relaciona directamente con la empresa, y esta relación puede incl
 
 **Acciones del cliente**: Solicita servicios o realiza pagos.
 
-
-``` mermaid
+```mermaid
 
 classDiagram
     class Empresa{
@@ -113,8 +112,6 @@ classDiagram
        +String nombre
        +String lista_trabajadores
        +agregar_trabajador()
-       +gestionar_cliente()
-       +gestionar_cliente()
     }
     class Direccion{
         +elaborar_plan()

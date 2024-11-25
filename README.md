@@ -197,7 +197,6 @@ classDiagram
         +String tipo
         +agregar_trabajador(Empleado empleado)
         +listar_trabajadores()
-        +gestionar_cliente()
     }
     class Empleado{
         +String nombre
@@ -207,7 +206,6 @@ classDiagram
     }
     Empresa --* Unidad : contiene
     Empresa --* Cliente : maneja
-    Unidad --* Cliente : gestiona
 
     Unidad <|-- Dirección
     Unidad <|-- Producción

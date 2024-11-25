@@ -15,6 +15,41 @@ Desarrolle la mayoría de ejercicios en clase. Para cada punto cree un programa 
 
 El siguiente modelo estpa basado en la **estructura de una empresa de desarroollo de software**, siguiendo los puntos esenciales de relaciones entre clases, composiciones, propiedades y comportamientos en diagramas UML usando Mermaid.
 
+### Relación Cliente - Empresa
+
+El cliente se relaciona directamente con la empresa, y esta relación puede incluir:
+
+**Empresa**: Es la clase principal que contiene las atributos generales y métodos para gestionar las unidades que forman parte de ella y los clientes.
+
+- Relación: La empresa maneja una lista de clientes y proporciona servicios a través de métodos específicos.
+
+**Atributos del cliente**: Identidad, necesidades específicas y datos de contacto.
+
+**Acciones del cliente**: Solicita servicios o realiza pagos.
+
+
+``` mermaid
+
+classDiagram
+    class Empresa{
+        +String nombre
+        +String direccion
+        +agregar_unidad()
+        +listar_unidades()
+        +agregar_cliente()
+        +listar_clientes()
+    }
+    class Cliente{
+        +String nombre
+        +String contacto
+        +realizar_pedido()
+        +realizar_pago()
+    }
+    Empresa --* Cliente : maneja
+    direction LR
+
+```
+
 ### Relación Empresa - Unidad Central - Empleados
 
 **Empresa**: Es la clase principal que contiene las atributos generales y métodos para gestionar las unidades que forman parte de ella.
@@ -34,6 +69,8 @@ classDiagram
         +String direccion
         +agregar_unidad()
         +listar_unidades()
+        +agregar_cliente()
+        +listar_clientes()
     }
     class UnidadCentral{
         +String nombre
@@ -76,6 +113,8 @@ classDiagram
        +String nombre
        +String lista_trabajadores
        +agregar_trabajador()
+       +gestionar_cliente()
+       +gestionar_cliente()
     }
     class Direccion{
         +elaborar_plan()
@@ -142,14 +181,23 @@ classDiagram
     class Empresa{
         +String nombre
         +String direccion
-        +agregar_unidad(Unidad unidad)
+        +agregar_unidad()
         +listar_unidades()
+        +agregar_cliente()
+        +listar_clientes()
+    }
+    class Cliente{
+        +String nombre
+        +String contacto
+        +realizar_pedido()
+        +realizar_pago()
     }
     class Unidad{
         +String nombre
         +String tipo
         +agregar_trabajador(Empleado empleado)
         +listar_trabajadores()
+        +gestionar_cliente()
     }
     class Empleado{
         +String nombre
@@ -158,6 +206,8 @@ classDiagram
         +trabajar()
     }
     Empresa --* Unidad : contiene
+    Empresa --* Cliente : maneja
+    Unidad --* Cliente : gestiona
 
     Unidad <|-- Dirección
     Unidad <|-- Producción
